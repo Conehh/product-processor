@@ -1,6 +1,7 @@
 # Pharmaceutical Product Validation System
 
 This is a legacy Node.js application for validating and processing pharmaceutical product registrations.
+Bug investigations, fixes, and ticket analyses are documented in `SOLUTION.md`
 
 ## Prerequisites
 
@@ -9,10 +10,12 @@ This is a legacy Node.js application for validating and processing pharmaceutica
 
 ## How to Run
 
-1. **Extract all files** to a folder (maintain the directory structure)
+1. **Navigate to the project folder** in terminal/command prompt
 
-2. **Navigate to the project folder** in terminal/command prompt
+- `cd product-processor`
 
-3. **Run the example script** to see the system in action:
-```bash
-   node example.js
+2. **Run the testing script** to see the system in action:
+
+- `npm run test-performance` for performance test
+- `npm run test-validation` for validation test
+- `npm run test` for definitive bug test
