@@ -30,10 +30,9 @@ class ProductValidator {
     }
 
     const isValid = patterns[country].test(regulatoryId);
-    const cleanId = this.preprocessId(regulatoryId);
 
     const result = isValid
-      ? { valid: true, cleanId: cleanId }
+      ? { valid: true, cleanId: regulatoryId }
       : { valid: false, error: "Invalid regulatory ID format" };
 
     this.validationCache.set(cacheKey, result);
@@ -62,8 +61,9 @@ class ProductValidator {
       errors.push("Regulatory ID is required");
     } else {
       try {
+        const cleanId = this.preprocessId(productData.regulatoryId);
         const idValidation = this.validateRegulatoryId(
-          productData.regulatoryId,
+          cleanId,
           productData.country
         );
         if (!idValidation.valid) {
